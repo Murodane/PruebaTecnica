@@ -11,6 +11,7 @@ namespace PruebaTecnica3
             int PosicionX = 0;
             int PosicionY = 0;
 
+            //Relleno matriz de "O"
             for (int i = 0; i < 4; i++)//Filas
             {
                 for (int j = 0; j < 4; j++)//Columnas
@@ -19,18 +20,18 @@ namespace PruebaTecnica3
                 }
             }
 
-            for (int i = 0; i < myArray.Length; i += 2)
+            for (int i = 0; i < myArray.Length; i += 2) //Tomo numeros de dos en dos
             {
-                int PrimerNumero = myArray[i];
-                int SegundoNumero = myArray[i + 1];
+                int PrimerNumero = myArray[i]; //Primer numero del grupo
+                int SegundoNumero = myArray[i + 1]; //Segundo numero del grupo
 
-                int NuevaPosicionX = PosicionX + PrimerNumero;
+                int NuevaPosicionX = PosicionX + PrimerNumero; //Cambio posicion para X
 
-                if (NuevaPosicionX >= 0 && NuevaPosicionX <= 3)
+                if (NuevaPosicionX >= 0 && NuevaPosicionX <= 3) //Valido si la nueva posicion de X supera 4 casillas
                 {
                     PosicionX = NuevaPosicionX;
                 }
-                else if(NuevaPosicionX>3)
+                else if (NuevaPosicionX > 3)
                 {
                     PosicionX = 3;
                 }
@@ -39,10 +40,9 @@ namespace PruebaTecnica3
                     PosicionX = 0;
                 }
 
-                int NuevaPosicionY = PosicionY + SegundoNumero;
+                int NuevaPosicionY = PosicionY + SegundoNumero; //Cambio posicion para Y
 
-
-                if (NuevaPosicionY >= 0 && NuevaPosicionY <= 3)
+                if (NuevaPosicionY >= 0 && NuevaPosicionY <= 3) //Valido si la nueva posicion de Y supera 4 casillas
                 {
                     PosicionY = NuevaPosicionY;
                 }
@@ -56,12 +56,9 @@ namespace PruebaTecnica3
                 }
             }
 
+            Matriz[PosicionY, PosicionX] = "X"; //Asigno la X a la matriz según la nueva posicion.
 
-
-            Matriz[PosicionY, PosicionX] = "X";
-
-            // Imprime el tablero
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++) //Recorro matriz para imprimirla
             {
                 for (int j = 0; j < 4; j++)
                 {
